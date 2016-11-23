@@ -1,0 +1,45 @@
+<head>
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<script>
+		
+			document.onkeypress = function(event){
+					console.log(event.key)
+					switch (event.key) {
+					  case "w":
+						$.get("/forward/75");
+						console.log("moving forward");
+						break;
+					  case "a":
+						$.get("/left");
+						console.log("stearing left");
+						break;
+					  case "s":
+						$.get("/backward/75");
+						console.log("moving backwards");
+						break;
+					  case "d":
+						$.get("/right");
+						console.log("stearing right");
+						break;
+					  default:
+						console.log("Use WASD to control the machine");
+					}
+				}
+			document.onkeyup = function(e){
+				console.log(e.key !="d");
+					if(e.key == "a" || e.key == "d"){
+						
+					}
+					else{
+						$.get("/stop");
+					}
+					
+				}
+			
+	</script>
+</body>
